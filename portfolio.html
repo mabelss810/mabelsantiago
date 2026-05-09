@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mabel Santiago — Cybersecurity Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Inconsolata:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #faf8f4;
+  --warm-white: #f5f2ec;
+  --gold: #9a7c3f;
+  --gold-light: #c4a265;
+  --gold-pale: #f0e6d0;
+  --cardinal: #990000;
+  --cardinal-deep: #6b0000;
+  --cardinal-pale: #fdf0f0;
+  --charcoal: #1c1c1e;
+  --ink: #2d2d30;
+  --mid: #6b6b70;
+  --light: #a0a0a8;
+  --border: rgba(154,124,63,0.15);
+  --border2: rgba(154,124,63,0.3);
+  --display: 'Playfair Display', serif;
+  --sans: 'Plus Jakarta Sans', sans-serif;
+  --mono: 'Inconsolata', monospace;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── USC STRIPE ── */
+.usc-stripe {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cardinal) 0%, var(--cardinal) 50%, var(--gold) 50%, var(--gold) 100%);
+  z-index: 200;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 3px; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 5rem;
+  background: rgba(250,248,244,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(154,124,63,0.12);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 4px 24px rgba(0,0,0,0.04);
+}
+
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.nav-name {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--charcoal);
+}
+
+.nav-title-small {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--charcoal); }
+
+.nav-cta {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1.4rem !important;
+  background: var(--cardinal) !important;
+  color: white !important;
+  border-radius: 100px !important;
+  letter-spacing: 0.03em !important;
+  transition: background 0.2s, box-shadow 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--cardinal-deep) !important; color: white !important; box-shadow: 0 4px 16px rgba(153,0,0,0.25) !important; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 5rem;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 70% at 80% 50%, rgba(153,0,0,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(154,124,63,0.05) 0%, transparent 60%),
+    var(--cream);
+}
+
+.hero-bg-text {
+  position: absolute;
+  right: -3rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: var(--display);
+  font-size: 13rem;
+  font-weight: 300;
+  color: rgba(154,124,63,0.05);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+.hero-left {
+  padding-top: 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  animation: fadeUp 0.7s 0.1s ease forwards;
+  opacity: 0;
+}
+
+.hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+
+.hero-eyebrow span {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h1 {
+  font-family: var(--display);
+  font-size: clamp(3.8rem, 6.5vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  margin-bottom: 0.3rem;
+  animation: fadeUp 0.7s 0.25s ease forwards;
+  opacity: 0;
+}
+
+h1 em { font-style: italic; color: var(--cardinal); }
+.hero-lastname { font-weight: 600; }
+
+.hero-descriptor {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.75rem;
+  animation: fadeUp 0.7s 0.4s ease forwards;
+  opacity: 0;
+}
+
+.hero-bio {
+  font-size: 0.95rem;
+  color: var(--mid);
+  font-weight: 300;
+  max-width: 460px;
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.7s 0.55s ease forwards;
+  opacity: 0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  animation: fadeUp 0.7s 0.7s ease forwards;
+  opacity: 0;
+}
+
+.btn-cardinal {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.9rem 2.25rem;
+  background: var(--cardinal);
+  color: white;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(153,0,0,0.2);
+}
+
+.btn-cardinal:hover { background: var(--cardinal-deep); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(153,0,0,0.28); }
+
+.btn-outline-gold {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.9rem 2.25rem;
+  border: 1.5px solid var(--border2);
+  color: var(--gold);
+  text-decoration: none;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.btn-outline-gold:hover { background: var(--gold-pale); border-color: var(--gold); }
+
+/* USC emblem */
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding-top: 5rem;
+  animation: fadeUp 0.8s 0.5s ease forwards;
+  opacity: 0;
+}
+
+.usc-emblem {
+  width: 320px;
+  height: 320px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: radial-gradient(circle at center, rgba(153,0,0,0.03) 0%, transparent 70%);
+}
+
+.usc-emblem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(154,124,63,0.18);
+  border-radius: 50%;
+}
+
+.usc-emblem::after {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(154,124,63,0.1);
+  border-radius: 50%;
+}
+
+.usc-letters {
+  font-family: var(--display);
+  font-size: 5.5rem;
+  font-weight: 600;
+  color: var(--cardinal);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.usc-full {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  line-height: 1.7;
+}
+
+.usc-tagline {
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--light);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  position: absolute;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  z-index: 3;
+}
+
+.hero-badge-1 { top: 70px; right: -24px; }
+.hero-badge-2 { bottom: 55px; left: -24px; }
+
+.badge-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.badge-value {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+/* ── SHARED SECTION ── */
+.section-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 6rem 5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+h2 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  line-height: 1.1;
+}
+
+h2 em { font-style: italic; color: var(--cardinal); font-weight: 300; }
+
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  min-width: 40px;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-intro {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.01em;
+}
+
+.about-intro em { font-style: italic; color: var(--cardinal); }
+
+.about-body {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.9;
+}
+
+.about-body p + p { margin-top: 1rem; }
+
+.skills-stack { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.skill-block {
+  border-left: 2px solid var(--gold-pale);
+  padding-left: 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.skill-block:hover { border-left-color: var(--gold); }
+
+.skill-block-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.pill {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  padding: 0.3rem 0.85rem;
+  background: white;
+  border: 1px solid rgba(154,124,63,0.18);
+  border-radius: 100px;
+  color: var(--mid);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.pill:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── PROJECTS ── */
+#projects { background: var(--warm-white); }
+
+.projects-intro {
+  font-size: 0.95rem;
+  color: var(--mid);
+  font-weight: 300;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  margin-top: -2.5rem;
+  line-height: 1.8;
+}
+
+.projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.project-card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(154,124,63,0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.25s;
+}
+
+.project-card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(154,124,63,0.1);
+  transform: translateY(-4px);
+}
+
+.project-card-inner { display: grid; grid-template-columns: 5px 1fr; }
+
+.project-accent-bar { background: var(--cardinal); border-radius: 16px 0 0 16px; }
+.project-card:nth-child(2) .project-accent-bar { background: var(--gold); }
+.project-card:nth-child(4) .project-accent-bar { background: var(--gold); }
+
+.project-content { padding: 2.25rem 2.5rem; }
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-category {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.project-title {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.project-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.project-badge {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.85rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.badge-red { background: var(--cardinal-pale); color: var(--cardinal); border: 1px solid rgba(153,0,0,0.15); }
+.badge-gold { background: var(--gold-pale); color: var(--gold); border: 1px solid rgba(154,124,63,0.2); }
+
+.project-summary {
+  font-size: 0.95rem;
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.project-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.detail-block-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 0.5rem;
+}
+
+.detail-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+
+.detail-list li {
+  font-size: 0.875rem;
+  color: var(--mid);
+  font-weight: 300;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.55;
+}
+
+.detail-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-light);
+  font-size: 0.75rem;
+  top: 0.1rem;
+}
+
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tool-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.tool-chip {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  padding: 0.25rem 0.75rem;
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--mid);
+}
+
+.ats-note {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--light);
+  text-transform: uppercase;
+}
+
+/* ── EXPERIENCE ── */
+#experience { background: var(--cream); }
+
+.exp-timeline {
+  border-left: 1px solid var(--border);
+  padding-left: 2.5rem;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exp-entry { position: relative; padding-bottom: 3rem; }
+.exp-entry:last-child { padding-bottom: 0; }
+
+.exp-dot {
+  position: absolute;
+  left: -2.9rem;
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--gold);
+}
+
+.exp-meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.exp-role {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.exp-org {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cardinal);
+}
+
+.exp-period {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--light);
+  margin-left: auto;
+}
+
+.exp-body {
+  font-size: 0.93rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.85;
+  max-width: 680px;
+  margin-bottom: 1rem;
+}
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--charcoal);
+  position: relative;
+  overflow: hidden;
+}
+
+#contact::before {
+  content: 'MS';
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--display);
+  font-size: 18rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.contact-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 7rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-left h2 { color: white; margin-bottom: 1rem; }
+.contact-left h2 em { color: var(--gold-light); }
+
+.contact-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 300;
+  line-height: 1.85;
+  max-width: 380px;
+}
+
+.contact-right { display: flex; flex-direction: column; gap: 1rem; }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(154,124,63,0.4);
+  transform: translateX(4px);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  font-family: var(--sans);
+  font-weight: 600;
+}
+
+.ci-red { background: rgba(153,0,0,0.3); color: #ff9999; }
+.ci-blue { background: rgba(50,100,200,0.2); color: #8ab4f8; }
+.ci-gray { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); font-size: 12px; }
+
+.contact-item-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.contact-item-value {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #111113;
+  padding: 1.75rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-name {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+}
+
+.footer-right {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.18);
+  text-transform: uppercase;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── DIVIDER ── */
+.full-divider { border: none; border-top: 1px solid var(--border); max-width: 1140px; margin: 0 auto; }
+.divider-wrap { padding: 0 5rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  nav { padding: 1.25rem 2rem; }
+  .nav-links { display: none; }
+  #hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; }
+  .hero-right { display: none; }
+  .hero-bg-text { display: none; }
+  .section-wrap { padding: 5rem 2rem; }
+  .divider-wrap { padding: 0 2rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .project-header { flex-direction: column; gap: 0.75rem; }
+  .project-badges { align-items: flex-start; flex-direction: row; }
+  .project-details-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+  footer { padding: 1.5rem 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="usc-stripe"></div>
+
+<nav>
+  <a class="nav-brand" href="#">
+    <span class="nav-name">Mabel Santiago</span>
+    <span class="nav-title-small">Cybersecurity · USC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-bg-text">Santiago</div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Cybersecurity Portfolio</span>
+    </div>
+    <h1>
+      Mabel<br>
+      <span class="hero-lastname"><em>Santiago</em></span>
+    </h1>
+    <p class="hero-descriptor">Digital Forensics &amp; Security Strategy</p>
+    <p class="hero-bio">
+      Cybersecurity student at the University of Southern California. I analyze how systems behave, identify patterns in data, and translate technical findings into structured, actionable security intelligence.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-cardinal">View My Work</a>
+      <a href="#contact" class="btn-outline-gold">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="usc-emblem">
+      <div class="usc-letters">USC</div>
+      <div class="usc-full">University of Southern<br>California</div>
+      <div class="usc-tagline">Fight On</div>
+      <div class="hero-badge hero-badge-1">
+        <span class="badge-label">Program</span>
+        <span class="badge-value">Cybersecurity</span>
+      </div>
+      <div class="hero-badge hero-badge-2">
+        <span class="badge-label">Focus</span>
+        <span class="badge-value">Digital Forensics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wrap"><hr class="full-divider"></div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">About</span>
+      <h2>Security Through <em>Structured Reasoning</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="about-intro">
+          I approach security problems the way an investigator approaches a case — <em>methodically, evidence-first,</em> and always asking why.
+        </p>
+        <div class="about-body">
+          <p>I'm a cybersecurity student at the University of Southern California with a focus on digital forensics, system analysis, and risk-driven security strategy. My work centers on understanding how systems behave, identifying patterns in data, and translating technical findings into actionable insights.</p>
+          <p>Through hands-on projects, I've developed experience analyzing system artifacts, logs, and network activity to reconstruct events and evaluate potential risks — using tools like EnCase and Wireshark to build structured investigations that require correlating multiple data sources and reasoning through incomplete information.</p>
+          <p>Beyond technical analysis, I've explored security from a strategic lens through developing an Information Security Program, shifting my perspective to governance, risk management, and how security decisions align with real business priorities.</p>
+          <p>Strong communication and collaboration skills developed as a Python instructor and orientation leader complement my technical foundation — I explain complex ideas clearly and adapt effectively to both technical and non-technical audiences.</p>
+        </div>
+      </div>
+      <div class="skills-stack">
+        <div class="skill-block">
+          <div class="skill-block-label">Forensics &amp; Investigation</div>
+          <div class="skill-pills">
+            <span class="pill">EnCase</span>
+            <span class="pill">Wireshark</span>
+            <span class="pill">Windows Event Logs</span>
+            <span class="pill">Prefetch Analysis</span>
+            <span class="pill">Registry Forensics</span>
+            <span class="pill">Disk Imaging</span>
+            <span class="pill">Timeline Analysis</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-label">Security &amp; Risk</div>
+          <div class="skill-pills">
+            <span class="pill">Incident Response</span>
+            <span class="pill">Risk Registers</span>
+            <span class="pill">BIA / RTO / RPO</span>
+            <span class="pill">Vulnerability Assessment</span>
+            <span class="pill">Nmap</span>
+            <span class="pill">System Hardening</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-label">Frameworks &amp; Compliance</div>
+          <div class="skill-pills">
+            <span class="pill">PCI DSS</span>
+            <span class="pill">GDPR</span>
+            <span class="pill">CCPA / CPRA</span>
+            <span class="pill">NIST</span>
+            <span class="pill">Vendor Risk Management</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-label">Technical</div>
+          <div class="skill-pills">
+            <span class="pill">Python</span>
+            <span class="pill">Network Architecture</span>
+            <span class="pill">ACLs &amp; Routing</span>
+            <span class="pill">Technical Writing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-wrap"><hr class="full-divider"></div>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects" style="background: linear-gradient(180deg, var(--warm-white) 0%, #f0ede6 100%); padding:0;">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">Projects</span>
+      <h2>Selected <em>Work</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="projects-intro">
+      Each project reflects a real-world security challenge — from forensic investigation to enterprise risk strategy. Descriptions are written to reflect both technical depth and business impact, and are optimized for applicant tracking systems.
+    </p>
+
+    <div class="projects-list">
+
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-accent-bar"></div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <div class="project-category">Cybersecurity Strategy &amp; Governance</div>
+                <div class="project-title">Information Security Program Development</div>
+              </div>
+              <div class="project-badges">
+                <span class="project-badge badge-red">Risk Management</span>
+                <span class="project-badge badge-gold">GRC</span>
+              </div>
+            </div>
+            <p class="project-summary">
+              Designed and developed a comprehensive Information Security Program (ISP) for a simulated global streaming platform, aligning security initiatives with business continuity, regulatory compliance, and revenue protection. Addressed a high-risk environment with cloud-dependent infrastructure, third-party vendor reliance, and zero-downtime requirements.
+            </p>
+            <div class="project-details-grid">
+              <div>
+                <div class="detail-block-label">Key Deliverables</div>
+                <ul class="detail-list">
+                  <li>Business Impact Analysis defining MTD, RTO, RPO, and WRT for critical processes including content delivery and payment systems</li>
+                  <li>Structured Incident Response Plan with defined roles, severity classifications, escalation procedures, and full incident lifecycle phases</li>
+                  <li>Risk Register using likelihood × impact scoring to prioritize cloud failure, credential compromise, and third-party vendor dependency</li>
+                  <li>Governance policies for cloud security, incident response, and vendor risk management</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-block-label">Outcomes &amp; Impact</div>
+                <ul class="detail-list">
+                  <li>Achieved alignment across PCI DSS, GDPR, and CCPA/CPRA compliance requirements</li>
+                  <li>Identified and remediated gaps in monitoring and escalation through after-action review of a simulated outage</li>
+                  <li>Produced governance framework connecting technical security controls to business risk and operational resilience</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-footer">
+              <div class="tool-list">
+                <span class="tool-chip">Risk Register</span>
+                <span class="tool-chip">BIA</span>
+                <span class="tool-chip">IRP</span>
+                <span class="tool-chip">PCI DSS</span>
+                <span class="tool-chip">GDPR</span>
+                <span class="tool-chip">CCPA/CPRA</span>
+                <span class="tool-chip">Vendor Risk Mgmt</span>
+              </div>
+              <span class="ats-note">Security Strategy · GRC · Risk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-accent-bar"></div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <div class="project-category">Digital Forensics &amp; Incident Response</div>
+                <div class="project-title">DFIR Investigation — Windows System Analysis</div>
+              </div>
+              <div class="project-badges">
+                <span class="project-badge badge-gold">DFIR</span>
+                <span class="project-badge badge-red">Forensics</span>
+              </div>
+            </div>
+            <p class="project-summary">
+              Performed a structured forensic investigation on a Windows-based system to analyze suspicious activity, reconstruct a detailed timeline of user and system behavior, and identify indicators of compromise. Applied evidence-based methodology to move from initial anomalies to validated conclusions while maintaining strict data integrity throughout.
+            </p>
+            <div class="project-details-grid">
+              <div>
+                <div class="detail-block-label">Investigation Scope</div>
+                <ul class="detail-list">
+                  <li>Collected and analyzed Windows Event Logs, Prefetch files, Registry entries, USB device history, and file metadata</li>
+                  <li>Correlated artifacts across multiple data sources to construct a comprehensive event timeline</li>
+                  <li>Identified unauthorized file access and execution from external devices as key indicators of compromise</li>
+                  <li>Used EnCase to examine disk images and extract forensic artifacts with chain-of-custody integrity</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-block-label">Methodology &amp; Reporting</div>
+                <ul class="detail-list">
+                  <li>Applied structured investigative methodology: hypothesis formation, artifact collection, evidence correlation, and validation</li>
+                  <li>Produced formal forensic report designed for non-technical stakeholders with logical structure and actionable findings</li>
+                  <li>Demonstrated strong evidence correlation and analytical reasoning through ambiguous and incomplete data</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-footer">
+              <div class="tool-list">
+                <span class="tool-chip">EnCase</span>
+                <span class="tool-chip">Windows Event Logs</span>
+                <span class="tool-chip">Prefetch</span>
+                <span class="tool-chip">Registry Analysis</span>
+                <span class="tool-chip">USB Forensics</span>
+                <span class="tool-chip">Timeline Analysis</span>
+              </div>
+              <span class="ats-note">DFIR · Forensics · Investigation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-accent-bar"></div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <div class="project-category">Network Security &amp; Infrastructure</div>
+                <div class="project-title">Enterprise Network Architecture Design</div>
+              </div>
+              <div class="project-badges">
+                <span class="project-badge badge-red">Network Security</span>
+                <span class="project-badge badge-gold">Infrastructure</span>
+              </div>
+            </div>
+            <p class="project-summary">
+              Designed a multi-site enterprise network architecture to support secure, reliable, and scalable system operations. Focused on reducing attack surface through strategic network segmentation, controlling data flow, and incorporating logging and monitoring to improve incident detection capabilities.
+            </p>
+            <div class="project-details-grid">
+              <div>
+                <div class="detail-block-label">Design &amp; Implementation</div>
+                <ul class="detail-list">
+                  <li>Implemented network segmentation using ACLs and structured routing to isolate critical systems and limit lateral movement</li>
+                  <li>Configured logical network design supporting data flow control, access restrictions, and system availability</li>
+                  <li>Evaluated security vs. operational performance trade-offs to align controls with system requirements</li>
+                  <li>Integrated logging and monitoring strategies to enhance visibility and support incident detection</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-block-label">Documentation &amp; Scalability</div>
+                <ul class="detail-list">
+                  <li>Analyzed network activity to identify inefficiencies and potential misconfigurations</li>
+                  <li>Produced detailed technical documentation covering design rationale, configuration decisions, and architecture</li>
+                  <li>Designed for future scalability and maintainability following structured security engineering principles</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-footer">
+              <div class="tool-list">
+                <span class="tool-chip">ACLs</span>
+                <span class="tool-chip">Network Segmentation</span>
+                <span class="tool-chip">Routing</span>
+                <span class="tool-chip">Wireshark</span>
+                <span class="tool-chip">Logging &amp; Monitoring</span>
+              </div>
+              <span class="ats-note">Network Security · Architecture · Infrastructure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-accent-bar"></div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <div class="project-category">Vulnerability Management &amp; System Hardening</div>
+                <div class="project-title">Security Configuration &amp; Vulnerability Assessment</div>
+              </div>
+              <div class="project-badges">
+                <span class="project-badge badge-gold">Vulnerability Mgmt</span>
+                <span class="project-badge badge-red">Hardening</span>
+              </div>
+            </div>
+            <p class="project-summary">
+              Conducted a security assessment of Windows-based systems to identify vulnerabilities, misconfigurations, and weaknesses affecting overall security posture. Used controlled scanning and configuration analysis to evaluate risk and develop structured remediation recommendations balancing security improvements with operational usability.
+            </p>
+            <div class="project-details-grid">
+              <div>
+                <div class="detail-block-label">Assessment Activities</div>
+                <ul class="detail-list">
+                  <li>Used Nmap to perform controlled scans identifying exposed services, open ports, and exploitable weaknesses</li>
+                  <li>Evaluated services, user permissions, and system configurations against established security best practices</li>
+                  <li>Analyzed results to determine risk levels and prioritize remediation by severity and business impact</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-block-label">Recommendations &amp; Reporting</div>
+                <ul class="detail-list">
+                  <li>Developed structured hardening recommendations covering configuration, access control, and monitoring improvements</li>
+                  <li>Documented findings in a clear, organized format enabling effective communication of risks and mitigations to stakeholders</li>
+                  <li>Balanced security improvements against operational usability to ensure practical, actionable implementation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-footer">
+              <div class="tool-list">
+                <span class="tool-chip">Nmap</span>
+                <span class="tool-chip">Windows Security</span>
+                <span class="tool-chip">System Hardening</span>
+                <span class="tool-chip">Vulnerability Assessment</span>
+                <span class="tool-chip">Risk Prioritization</span>
+              </div>
+              <span class="ats-note">Vulnerability Mgmt · Hardening · Assessment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-wrap" style="background:var(--warm-white);"><hr class="full-divider"></div>
+
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">Experience</span>
+      <h2>Professional <em>Background</em></h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="exp-timeline">
+
+      <div class="exp-entry">
+        <div class="exp-dot"></div>
+        <div class="exp-meta-row">
+          <span class="exp-role">Python Instructor</span>
+          <span class="exp-org">USC Joint Educational Program</span>
+          <span class="exp-period">Teaching Experience</span>
+        </div>
+        <p class="exp-body">
+          Taught foundational programming concepts — logic, problem-solving, and Python syntax — to elementary-level students with no prior technical background. Designed and delivered structured lesson plans tailored to non-technical audiences, developing strong skills in translating complex technical ideas into clear, accessible explanations. Adapted teaching methods in real time based on feedback and classroom dynamics, reinforcing the communication adaptability critical to security reporting and stakeholder briefings.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">Python</span>
+          <span class="pill">Curriculum Design</span>
+          <span class="pill">Technical Communication</span>
+          <span class="pill">Stakeholder Adaptation</span>
+        </div>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-dot"></div>
+        <div class="exp-meta-row">
+          <span class="exp-role">Orientation Leader</span>
+          <span class="exp-org">University of Southern California</span>
+          <span class="exp-period">Operations &amp; Leadership</span>
+        </div>
+        <p class="exp-body">
+          Supported onboarding operations for over 9,000 students across a large-scale, fast-paced environment. Coordinated logistics, provided real-time guidance, and resolved issues under time pressure — skills directly transferable to incident response coordination. Communicated clearly with diverse groups, maintained organizational discipline across simultaneous activities, and demonstrated professional composure and adaptability under pressure.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">Logistics Coordination</span>
+          <span class="pill">Team Collaboration</span>
+          <span class="pill">Crisis Communication</span>
+          <span class="pill">Adaptability</span>
+          <span class="pill">Attention to Detail</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" style="padding:0;">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div style="margin-bottom:1.5rem;">
+        <span class="section-eyebrow" style="color:rgba(255,255,255,0.3);">Contact</span>
+      </div>
+      <h2>Let's <em>Connect</em></h2>
+      <p class="contact-sub">
+        Open to internship opportunities, research collaborations, and conversations about cybersecurity, digital forensics, and risk management.
+      </p>
+    </div>
+    <div class="contact-right">
+      <a class="contact-item" href="mailto:mabelss0810@gmail.com">
+        <div class="contact-icon ci-red">✉</div>
+        <div>
+          <span class="contact-item-label">Email</span>
+          <span class="contact-item-value">mabelss0810@gmail.com</span>
+        </div>
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/mabel-santiago-silva/" target="_blank">
+        <div class="contact-icon ci-blue">in</div>
+        <div>
+          <span class="contact-item-label">LinkedIn</span>
+          <span class="contact-item-value">linkedin.com/in/mabel-santiago-silva</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Mabel Santiago</span>
+  <span class="footer-right">USC · Cybersecurity · Los Angeles, CA</span>
+</footer>
+
+</body>
+</html>
