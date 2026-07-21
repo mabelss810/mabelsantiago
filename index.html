@@ -953,13 +953,32 @@ footer {
             <span class="pill">Vendor Risk Management</span>
           </div>
         </div>
-        <div class="skill-block">
+        
+          <div class="skill-block">
           <div class="skill-block-label">Technical</div>
           <div class="skill-pills">
             <span class="pill">Python</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">Next.js</span>
+            <span class="pill">Supabase</span>
             <span class="pill">Network Architecture</span>
             <span class="pill">ACLs &amp; Routing</span>
             <span class="pill">Technical Writing</span>
+          </div>
+        </div>
+        
+
+        <div class="skill-block">
+          <div class="skill-block-label">Engineering &amp; Data</div>
+          <div class="skill-pills">
+            <span class="pill">PDF Parsing</span>
+            <span class="pill">API Reverse Engineering</span>
+            <span class="pill">Browser DevTools</span>
+            <span class="pill">Data Integrity Auditing</span>
+            <span class="pill">Row-Level Security</span>
+            <span class="pill">Git / GitHub</span>
+            <span class="pill">AI-Augmented Development</span>
           </div>
         </div>
       </div>
@@ -983,6 +1002,59 @@ footer {
 
     <div class="projects-list">
 
+      <!-- ══ PINPOINTE LISTINGS APP — paste as FIRST card in .projects-list ══ -->
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-accent-bar"></div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <div class="project-category">Software Engineering &amp; Security — Internship</div>
+                <div class="project-title">Pinpointe Listings App — Production Data Integrity &amp; Backend Engineering</div>
+              </div>
+              <div class="project-badges">
+                <span class="project-badge badge-red">Real Production</span>
+                <span class="project-badge badge-gold">Shipped</span>
+              </div>
+            </div>
+            <p class="project-summary">
+              Worked as a software engineering and security intern on an internal real-estate tech platform at Pinpointe — a Next.js / TypeScript / Supabase app that ingests landlord emails and PDFs into a searchable apartment database. Discovered a critical data integrity failure in production, rebuilt the broken parser from scratch, reverse-engineered an undocumented third-party API, and shipped all work as reviewed pull requests against a live codebase.
+            </p>
+            <div class="project-details-grid">
+              <div>
+                <div class="detail-block-label">Security &amp; Data Integrity</div>
+                <ul class="detail-list">
+                  <li>Audited production database and discovered an LLM-based PDF parser fabricating 317 phantom listings — traced root cause to hard-coded example addresses in the model's own prompt; verified zero source occurrences before flagging</li>
+                  <li>Identified and removed a production API route bypassing row-level security; documented broker PII fields to keep out of stored data</li>
+                  <li>Verified all AI-generated code against real production data before merge — catching multiple cases where AI logic was subtly wrong</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-block-label">Engineering &amp; Systems</div>
+                <ul class="detail-list">
+                  <li>Replaced non-deterministic AI parser with a deterministic coordinate-based PDF parser — eliminated fabricated data, recovered ~40% more listings, removed all per-call API cost</li>
+                  <li>Reverse-engineered an undocumented third-party JSON API using browser DevTools; built an adapter taking production image coverage from 8 to 49 photos on first ingest</li>
+                  <li>Re-architected parser from position-based to content-based classification after discovering vendor re-scaled PDFs between issues — preventing a failure mode where empty parse auto-marked entire landlord inventory as rented</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-footer">
+              <div class="tool-list">
+                <span class="tool-chip">Next.js</span>
+                <span class="tool-chip">TypeScript</span>
+                <span class="tool-chip">Supabase</span>
+                <span class="tool-chip">pdfjs-dist</span>
+                <span class="tool-chip">Browser DevTools</span>
+                <span class="tool-chip">Row-Level Security</span>
+                <span class="tool-chip">API Reverse Engineering</span>
+                <span class="tool-chip">Data Integrity</span>
+                <span class="tool-chip">Git / GitHub</span>
+              </div>
+              <span class="ats-note">Security · Backend · Data Integrity</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="project-card">
         <div class="project-card-inner">
           <div class="project-accent-bar"></div>
@@ -1202,6 +1274,30 @@ footer {
 
     <div class="exp-timeline">
 
+      <!-- ══ PINPOINTE — paste as FIRST entry in .exp-timeline ══ -->
+      <div class="exp-entry">
+        <div class="exp-dot"></div>
+        <div class="exp-meta-row">
+          <span class="exp-role">Software Engineering &amp; Security Intern</span>
+          <span class="exp-org">Pinpointe</span>
+          <span class="exp-period">May 2026 – Present</span>
+        </div>
+        <p class="exp-body">
+          Built and debugged production backend systems for an internal real-estate platform handling live landlord data. Discovered and removed 317 fabricated listings caused by an LLM-based PDF parser copying its own example addresses into production — replaced it with a deterministic coordinate-based parser that recovered ~40% more real data and eliminated all per-call API cost. Reverse-engineered an undocumented third-party API to fix a broken image pipeline, taking production photo coverage from 8 to 49. Identified and removed a production route bypassing row-level security. Shipped all work as reviewed pull requests, using AI coding tools to accelerate development while independently verifying every output against real data before merge.
+        </p>
+        <div class="skill-pills">
+          <span class="pill">Next.js</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill">Supabase</span>
+          <span class="pill">PDF Parsing</span>
+          <span class="pill">API Reverse Engineering</span>
+          <span class="pill">Row-Level Security</span>
+          <span class="pill">Data Integrity</span>
+          <span class="pill">Git / GitHub</span>
+          <span class="pill">WordPress</span>
+          <span class="pill">JavaScript</span>
+        </div>
+      </div>
       <div class="exp-entry">
         <div class="exp-dot"></div>
         <div class="exp-meta-row">
