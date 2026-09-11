@@ -426,6 +426,73 @@ h2 em { font-style: italic; color: var(--cardinal); font-weight: 300; }
 
 .about-body p + p { margin-top: 1rem; }
 
+/* ── CERT BADGES ── */
+.cert-badges { margin-top: 2.25rem; }
+
+.cert-badges-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+
+.cert-badges-row { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+.cert-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.15rem 0.5rem 0.5rem;
+  background: white;
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+  transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+  cursor: default;
+}
+
+.cert-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(154,124,63,0.18);
+  border-color: var(--gold);
+}
+
+.cert-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cardinal) 0%, var(--gold) 100%);
+  color: white;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.25);
+}
+
+.cert-badge-body { display: flex; flex-direction: column; line-height: 1.3; }
+
+.cert-badge-title {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.cert-badge-meta {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-top: 1px;
+}
+
 .skills-stack { display: flex; flex-direction: column; gap: 1.5rem; }
 
 .skill-block {
@@ -494,8 +561,7 @@ h2 em { font-style: italic; color: var(--cardinal); font-weight: 300; }
 .project-card-inner { display: grid; grid-template-columns: 5px 1fr; }
 
 .project-accent-bar { background: var(--cardinal); border-radius: 16px 0 0 16px; }
-.project-card:nth-child(2) .project-accent-bar { background: var(--gold); }
-.project-card:nth-child(4) .project-accent-bar { background: var(--gold); }
+.project-card:nth-child(even) .project-accent-bar { background: var(--gold); }
 
 .project-content { padding: 2.25rem 2.5rem; }
 
@@ -918,6 +984,32 @@ footer {
           <p>Beyond technical analysis, I've explored security from a strategic lens through developing an Information Security Program, shifting my perspective to governance, risk management, and how security decisions align with real business priorities.</p>
           <p>Strong communication and collaboration skills developed as a Python instructor and orientation leader complement my technical foundation — I explain complex ideas clearly and adapt effectively to both technical and non-technical audiences.</p>
         </div>
+        <div class="cert-badges">
+          <div class="cert-badges-label">Certified By</div>
+          <div class="cert-badges-row">
+            <div class="cert-badge" title="Issued Aug 2026 · Credential ID q2n2d2h4kz2s">
+              <div class="cert-badge-icon">A</div>
+              <div class="cert-badge-body">
+                <span class="cert-badge-title">Claude Code 101</span>
+                <span class="cert-badge-meta">Anthropic · Aug 2026</span>
+              </div>
+            </div>
+            <div class="cert-badge" title="Issued Aug 2026 · Credential ID qvytsdtnqcpw">
+              <div class="cert-badge-icon">A</div>
+              <div class="cert-badge-body">
+                <span class="cert-badge-title">Intro to Subagents</span>
+                <span class="cert-badge-meta">Anthropic · Aug 2026</span>
+              </div>
+            </div>
+            <div class="cert-badge" title="Issued Aug 2026 · Credential ID mwcd23k7cxao">
+              <div class="cert-badge-icon">A</div>
+              <div class="cert-badge-body">
+                <span class="cert-badge-title">Intro to Agent Skills</span>
+                <span class="cert-badge-meta">Anthropic · Aug 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="skills-stack">
         <div class="skill-block">
@@ -1055,6 +1147,58 @@ footer {
           </div>
         </div>
       </div>
+      <!-- ══ MEMORY FORENSICS LAB ══ -->
+      <div class="project-card">
+        <div class="project-card-inner">
+          <div class="project-accent-bar"></div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <div class="project-category">Digital Forensics &amp; Incident Response</div>
+                <div class="project-title">Memory Forensics Investigation Lab</div>
+              </div>
+              <div class="project-badges">
+                <span class="project-badge badge-gold">Memory Forensics</span>
+                <span class="project-badge badge-red">DFIR</span>
+              </div>
+            </div>
+            <p class="project-summary">
+              Conducted a full memory forensics investigation on a Windows 7 memory image using Volatility 3 — associated with the University of Southern California. Identified two active user sessions from process metadata, reconstructed the attack timeline by tracing parent-child process relationships, and recovered three artifacts from memory alone, with no filesystem access.
+            </p>
+            <div class="project-details-grid">
+              <div>
+                <div class="detail-block-label">Investigation Scope</div>
+                <ul class="detail-list">
+                  <li>Analyzed a Windows 7 memory image entirely in RAM using Volatility 3, without any filesystem access</li>
+                  <li>Identified two active user sessions from process metadata and reconstructed the attack timeline via parent-child process relationships</li>
+                  <li>Recovered three artifacts purely from memory: a Base64-encoded batch file on the desktop, a Paint canvas that existed only in memory, and a password-protected RAR archive belonging to a second user</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-block-label">Methodology &amp; Reporting</div>
+                <ul class="detail-list">
+                  <li>Cracked the NTLM password hash using offline techniques to extract the final password-protected artifact</li>
+                  <li>Applied evidence-based methodology to move from process metadata to full artifact recovery without disk access</li>
+                  <li>Documented full methodology on GitHub, written spoiler-free so others can learn from the investigation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-footer">
+              <div class="tool-list">
+                <span class="tool-chip">Volatility 3</span>
+                <span class="tool-chip">Memory Forensics</span>
+                <span class="tool-chip">Process Analysis</span>
+                <span class="tool-chip">Timeline Reconstruction</span>
+                <span class="tool-chip">NTLM Cracking</span>
+                <span class="tool-chip">Windows 7</span>
+                <a class="tool-chip" href="https://github.com/mabelss810/memory-forensics-lab" target="_blank" rel="noopener" style="text-decoration:none;">GitHub ↗</a>
+              </div>
+              <span class="ats-note">Memory Forensics · Incident Response · DFIR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card">
         <div class="project-card-inner">
           <div class="project-accent-bar"></div>
