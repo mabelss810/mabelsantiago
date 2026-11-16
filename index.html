@@ -475,6 +475,11 @@ h2 em { font-style: italic; color: var(--cardinal); font-weight: 300; }
   box-shadow: inset 0 0 0 2px rgba(255,255,255,0.25);
 }
 
+.cert-badge-link { text-decoration: none; cursor: pointer; }
+
+.cert-badge-icon-img { background: white; box-shadow: none; overflow: hidden; }
+.cert-badge-icon-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
 .cert-badge-body { display: flex; flex-direction: column; line-height: 1.3; }
 
 .cert-badge-title {
@@ -986,10 +991,14 @@ footer {
         </div>
         <div class="cert-badges">
           <div class="cert-badges-label">Certified By</div>
-          <div class="credly-badge" style="margin-bottom: 1rem;">
-            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="44439e84-4efb-4303-ad45-e91701b194f9" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-          </div>
           <div class="cert-badges-row">
+            <a class="cert-badge cert-badge-link" href="https://www.credly.com/badges/44439e84-4efb-4303-ad45-e91701b194f9/public_url" target="_blank" rel="noopener" title="Issued Nov 2026 · Verify on Credly">
+              <div class="cert-badge-icon cert-badge-icon-img"><img src="images/security-plus.png" alt="CompTIA Security+ badge"></div>
+              <div class="cert-badge-body">
+                <span class="cert-badge-title">CompTIA Security+</span>
+                <span class="cert-badge-meta">CompTIA · Nov 2026</span>
+              </div>
+            </a>
             <div class="cert-badge" title="Issued Aug 2026 · Credential ID q2n2d2h4kz2s">
               <div class="cert-badge-icon">A</div>
               <div class="cert-badge-body">
